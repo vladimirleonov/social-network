@@ -1,0 +1,35 @@
+.my__posts {
+   display: block;
+   width: 100%;
+   padding: 30px 20px;
+   background-color: #ffffff;
+ }
+.header {
+   font-size: 30px;
+   /* margin-top: 15px; */
+   font-weight: 500;
+   padding-left: 10px;
+}
+.new__post {
+   margin: 15px 0 20px 0;
+   width: 700px;
+   margin-right: 0;
+}
+.new__post input {
+   display: block;
+   width: 700px;
+   min-height: 70px;
+   padding: 5px 15px;
+   font-size: 18px;
+}
+.new__post button {
+   width: 120px;
+   height: 32px;
+   font-size: 16px;
+   margin-top: 15px;
+   float: right;
+}
+.posts{
+   margin: 60px 0;
+   width: 700px;
+}

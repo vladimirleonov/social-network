@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #eeeeee;
+}
+
 .app {
   display: grid;
   grid-template-areas:  'header header'
@@ -6,6 +16,14 @@
   grid-template-rows: 70px 1fr;
   width: 1200px;
   margin: 0 auto;
+}
+
+.content {
+  grid-area: profile;
+  background-color: #eeeeee;
+  padding: 20px;
+  width: 100%;
+  width: 980px;
 }
 
 

@@ -1,6 +1,6 @@
 .header {
    grid-area: header;
-   background-color: #ebe6e6;
+   background-color: #212529;
    padding: 8px 20px;
 }
 .header .header__logo {
