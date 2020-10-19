@@ -1,64 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
+import DialogsItem from './DialogItem/DialogItem';
+import Message from './Message/Message';
+
 
 const Dialogs = () => {
    return (
       <div className={s.dialogs}>
          <ul className={s.dialogsItems}>
-            <li className={s.dialog}>
-               {/* <span></span> */}
-               <NavLink to="/dialogs/1">Dimysh</NavLink>
-            </li>
-            <li className={s.dialog}>
-               {/* <span></span> */}
-               <NavLink to="/dialogs/2">Andrey</NavLink>
-            </li>
-            <li className={s.dialog}>
-               {/* <span></span> */}
-               <NavLink to="/dialogs/3">Valera</NavLink>
-            </li>
-            <li className={s.dialog}>
-               {/* <span></span> */}
-               <Navlink to="/dialogs/4">Sveta</Navlink>
-            </li>
+            <DialogsItem name="Dimych" id="1" />
+            <DialogsItem name="Andrey" id="2" />
+            <DialogsItem name="Valera" id="3" />
+            <DialogsItem name="Sveta" id="4" />
          </ul>
          <div className={s.messages}>
-            <div className={s.wrapper}>
-               <div className={s.descr}>
-                  <img src="https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png" alt="#" />
-                  <div className={s.name}>Dimysh</div>
-               </div>
-               <div className={s.message}>I am learn react</div>
-            </div>
-            <div className={s.wrapper}>
-               <div className={s.descr}>
-                  <img src="https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png" alt="#" />
-                  <div className={s.name}>Me</div>
-               </div>
-               <div className={s.message}>Oh, good!</div>
-            </div>
-            <div className={s.wrapper}>
-               <div className={s.descr}>
-                  <img src="https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png" alt="#" />
-                  <div className={s.name}>Me</div>
-               </div>
-               <div className={s.message}> I also wont to start learn react. I also wont to start learn react. I also wont to start learn react</div>
-            </div>
-            <div className={s.wrapper}>
-               <div className={s.descr}>
-                  <img src="https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png" alt="#" />
-                  <div className={s.name}>Dimysh</div>
-               </div>
-               <div className={s.message}>You need to start</div>
-            </div>
-            <div className={s.wrapper}>
-               <div className={s.descr}>
-                  <img src="https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png" alt="#" />
-                  <div className={s.name}>Dimush</div>
-               </div>
-               <div className={s.message}>Y</div>
-            </div>
+            <Message name="Dimysh" message="I am learn react"/>
+            <Message name="Me" message="Oh, good!" />
+            <Message name="Me" message="I also wont to start learn react. I also wont to start learn react. I also wont to start learn react" />
+            <Message name="Dimysh" message="You need to start" />
+            <Message name="Me" message="Yes"/>
          </div>
       </div>
    )
