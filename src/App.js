@@ -10,7 +10,6 @@ import Settings from './components/Settings/Settings';
 
 import './App.css';
 
-
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -18,8 +17,8 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className="content">
-          <Route path='/profile' render={() => <Profile postData={props.postData} />} />
-          <Route path='/dialogs' render={() => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
+          <Route path='/profile' render={() => <Profile state={props.state.profilePage} />} />
+          <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/> } />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings}/>

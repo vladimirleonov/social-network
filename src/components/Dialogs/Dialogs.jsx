@@ -6,8 +6,8 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
 
    // на основе данных с сервера создаю массивы компонент
-   let dialogsElements = props.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
-   let messagesElements = props.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message}/>)
+   let dialogsElements = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
+   let messagesElements = props.state.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message}/>)
 
    
    return (
@@ -17,7 +17,7 @@ const Dialogs = (props) => {
             {dialogsElements}
          </ul>
          <div className={s.messages}>
-            {/* отрисовываю массив компонент */}
+            {/* отрисовываю массив сообщений */}
             {messagesElements}
          </div>
       </div>
