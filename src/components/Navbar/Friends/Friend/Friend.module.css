@@ -1,0 +1,19 @@
+.item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.item span {
+   background-image: url("https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png");
+   width: 50px;
+   height: 50px;
+   border-radius: 100%;
+}
+.item .name {
+   margin-top: 5px;
+   color: #847577;
+   text-decoration: none;
+}
+.item .name:hover{
+   color: #ff7555;
+}

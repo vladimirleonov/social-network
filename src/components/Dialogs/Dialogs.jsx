@@ -7,7 +7,7 @@ const Dialogs = (props) => {
 
    // на основе данных с сервера создаю массивы компонент
    let dialogsElements = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
-   let messagesElements = props.state.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message}/>)
+   let messagesElements = props.state.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message} index={m.index}/>)
 
    
    return (

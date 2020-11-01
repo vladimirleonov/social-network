@@ -5,6 +5,9 @@
    padding: 10px 15px;
    /* background-color: #666666; */
 }
+/* .wrapper.I {
+   background-color: #000000;
+} */
 .wrapper .descr {
    display: flex;
    flex-direction: column;

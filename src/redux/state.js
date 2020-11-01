@@ -20,6 +20,13 @@ let state = {
          { id: 4, name:"Dimysh", message:"You need to start" },
          { id: 5, name:"Me", message:"Yes" }
       ]
+   },
+   navbar: {
+      friends: [
+         { id: 1, name: 'Dimych' },
+         { id: 2, name: 'Andrey' },
+         { id: 3, name: 'Valera' }
+      ]
    }
 }
 
