@@ -5,6 +5,13 @@ import s from './MyPosts.module.css'
 
 
 const MyPosts = (props) => {
+
+   const newPostElement = React.createRef();
+
+   let addPost = () => {
+      const text = newPostElement.current.value;
+      alert(text);
+   }
    
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
    
@@ -13,13 +20,14 @@ const MyPosts = (props) => {
          <div className={s.header}>My posts</div>
          {/* <div className={s.new__post}> */}
          <form action="#" className={s.new__post}>
-            <input
+            {/* <input
                // className={c.new__post}
                type="text"
                name="news"
                placeholder="your news..."
-            />
-            <button className={s.btn} type="submit">Send</button>
+            /> */}
+            <textarea ref={newPostElement} name="news" id="33" cols="30" rows="3"></textarea>
+            <button onClick={addPost} className={s.btn} type="submit">Send</button>
          </form>
          {/* </div> */}
          <div className={s.posts}>

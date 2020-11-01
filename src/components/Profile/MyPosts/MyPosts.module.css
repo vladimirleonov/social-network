@@ -15,7 +15,7 @@
    width: 700px;
    margin-right: 0;
 }
-.new__post input {
+.new__post textarea {
    display: block;
    width: 700px;
    min-height: 70px;
