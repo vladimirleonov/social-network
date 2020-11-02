@@ -4,13 +4,14 @@
    font-size: 20px;
    height: 80px;
    padding: 0 15px;
+   border-bottom: 1px solid #eeeeee; 
 }
 /* .dialog:first-child {
    background-color: #eeeeee;
    color: white;
 } */
 .dialog:hover {
-   background-color: #eeeeee;
+   background-color: #efefef;
 }
 .dialog span{
    /* background-color: #000000;

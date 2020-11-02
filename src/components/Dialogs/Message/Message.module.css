@@ -3,6 +3,7 @@
    align-items: center;
    min-height: 100px;
    padding: 10px 15px;
+   color: #686868;
    /* background-color: #666666; */
 }
 /* .wrapper.I {
@@ -26,7 +27,7 @@
    min-height: 40px;
    min-width: 50px;
    max-width: 280px;
-   background-color: #eeeeee;
+   background-color: #efefef;
    padding: 10px 25px;
    border-radius: 20px;
    font-size: 16px;

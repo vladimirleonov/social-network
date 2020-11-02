@@ -5,7 +5,7 @@
 }
 
 html {
-  background-color: #eeeeee;
+  background-color: #f2f2f2;
 }
 
 .app {
@@ -20,7 +20,7 @@ html {
 
 .content {
   grid-area: profile;
-  background-color: #eeeeee;
+  background-color:#f2f2f2;
   padding: 20px;
   width: 100%;
   width: 980px;

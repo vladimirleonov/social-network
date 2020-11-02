@@ -5,14 +5,15 @@ import s from './MyPosts.module.css'
 
 
 const MyPosts = (props) => {
-
+   
    const newPostElement = React.createRef();
 
-   let addPost = () => {
+   let addPost = (e) => {
+      e.preventDefault();
       const text = newPostElement.current.value;
       alert(text);
    }
-   
+
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
    
    return (

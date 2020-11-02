@@ -19,7 +19,7 @@ let state = {
          { id: 3, name:"Me", message:"I also wont to start learn react. I also wont to start learn react. I also wont to start learn react" },
          { id: 4, name:"Dimysh", message:"You need to start" },
          { id: 5, name:"Me", message:"Yes" }
-      ]
+      ] 
    },
    navbar: {
       friends: [
@@ -28,6 +28,10 @@ let state = {
          { id: 3, name: 'Valera' }
       ]
    }
+}
+
+const sayHi = (postMessage) => {
+   alert(postMessage);
 }
 
 export default state;
