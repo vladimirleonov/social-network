@@ -1,6 +1,7 @@
 import React from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
+import addPost from '../../../redux/state';
 
 
 
@@ -8,9 +9,12 @@ const MyPosts = (props) => {
    
    const newPostElement = React.createRef();
 
-   let addPost = () => {
-      const text = newPostElement.current.value;
-      addPost(text);
+   let addP = (e) => {
+      e.preventDefault();
+      let text = newPostElement.current.value;
+      //alert(text);
+      props.addPost(text);
+      newPostElement.current.value = '';
    }
 
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
@@ -27,7 +31,7 @@ const MyPosts = (props) => {
                placeholder="your news..."
             /> */}
             <textarea ref={newPostElement} name="news" id="33" cols="30" rows="3"></textarea>
-            <button onClick={addPost} className={s.btn} type="submit">Send</button>
+            <button onClick={addP} className={s.btn} type="submit">Send</button>
          </form>
          {/* </div> */}
          <div className={s.posts}>
