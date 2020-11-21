@@ -9,12 +9,16 @@ const MyPosts = (props) => {
    
    const newPostElement = React.createRef();
 
-   let addP = (e) => {
-      e.preventDefault();
-      let text = newPostElement.current.value;
+   let addP = () => {
       //alert(text);
-      props.addPost(text);
-      newPostElement.current.value = '';
+      props.addPost();
+      //props.updateNewPostText('');
+   }
+
+   let onCP = () => {
+      let text = newPostElement.current.value;
+      //console.log(text);
+      props.updateNewPostText(text);
    }
 
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
@@ -30,8 +34,9 @@ const MyPosts = (props) => {
                name="news"
                placeholder="your news..."
             /> */}
-            <textarea ref={newPostElement} name="news" id="33" cols="30" rows="3"></textarea>
-            <button onClick={addP} className={s.btn} type="submit">Send</button>
+            <textarea ref={newPostElement} onChange={onCP} value={props.newPostText}
+               name="news" id="33" cols="30" rows="3"></textarea>
+            <button onClick={addP} className={s.btn} type="button">Send</button>
          </form>
          {/* </div> */}
          <div className={s.posts}>
