@@ -5,6 +5,7 @@ import Friends from './Friends/Friends';
 import s from './Navbar.module.css';
 
 const Navbar = (props) => {
+  
    return (
       <nav className={s.navbar}>
          <Menu/>

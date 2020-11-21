@@ -1,7 +1,6 @@
 import React from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.css'
-import addPost from '../../../redux/state';
 
 
 
@@ -11,14 +10,15 @@ const MyPosts = (props) => {
 
    let addP = () => {
       //alert(text);
-      props.addPost();
+      props.store.addPost();
       //props.updateNewPostText('');
    }
 
    let onCP = () => {
+      
       let text = newPostElement.current.value;
       //console.log(text);
-      props.updateNewPostText(text);
+      props.store.updateNewPostText(text);
    }
 
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
