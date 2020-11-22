@@ -5,24 +5,22 @@ import s from './MyPosts.module.css'
 
 
 const MyPosts = (props) => {
-   
+    
    const newPostElement = React.createRef();
 
-   let addP = () => {
+   let addP = () => { 
       //alert(text);
       props.store.addPost();
       //props.updateNewPostText('');
    }
 
-   let onCP = () => {
-      
+   let onCP = () => { 
       let text = newPostElement.current.value;
       //console.log(text);
       props.store.updateNewPostText(text);
    }
 
-   let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>)
-   
+   let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>) 
    return (
       <div className={s.my__posts}>
          <div className={s.header}>My posts</div>

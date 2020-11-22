@@ -10,7 +10,7 @@ import Settings from './components/Settings/Settings';
 
 import './App.css';
 
-const App = (props) => {
+const App = (props) => { 
   return (
     <div className="app">
       <Header />

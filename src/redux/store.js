@@ -1,5 +1,5 @@
 let store = {
-   state : {
+   _state : {
       profilePage: {      
          postData : [
             { id: 1, message: "Hi, how are you?", likeCount:"15" },
@@ -32,32 +32,37 @@ let store = {
       }
    },
 
-   rerenderEntireTree : function() {
+   _callSubscriber () {
       //console.log('state changed');
    },
 
-   addPost : function() {
+   getState() {
+      return this._state;
+   },
+
+   addPost() {
       let newPost = {
          id: 4,
-         message: this.state.profilePage.newPostText,
+         message: this._state.profilePage.newPostText,
          likeCount: 0
       }
-      this.state.profilePage.postData.push(newPost);
-      this.state.profilePage.newPostText = '';
-      this.rerenderEntireTree(this.state);
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber();
    },
 
-   updateNewPostText : function (newText) {
-      this.state.profilePage.newPostText = newText;
-      this.rerenderEntireTree(this.state);
+   updateNewPostText (newText) {
+      this._state.profilePage.newPostText = newText;
+      this._callSubscriber();
    },
 
-   subscribe : function (observer) {//subscribe - подписаться;observer - наблюдатель
-      this.rerenderEntireTree = observer;
+   subscribe (observer) {//subscribe - подписаться;observer - наблюдатель
+      this._callSubscriber = observer;
    }
 }
 
 export default store;
+//window.store = store;
 
 
 // let rerenderEntireTree = () => {
