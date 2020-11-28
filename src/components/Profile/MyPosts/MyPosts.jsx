@@ -10,14 +10,16 @@ const MyPosts = (props) => {
 
    let addP = () => { 
       //alert(text);
-      props.store.addPost();
+      props.dispatch({ type: 'ADD-POST' });
+      // props.store.addPost();
       //props.updateNewPostText('');
    }
 
    let onCP = () => { 
       let text = newPostElement.current.value;
       //console.log(text);
-      props.store.updateNewPostText(text);
+      props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
+      // props.store.updateNewPostText(text);
    }
 
    let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>) 

@@ -32,34 +32,55 @@ let store = {
       }
    },
 
-   _callSubscriber () {
-      //console.log('state changed');
-   },
-
    getState() {
       return this._state;
    },
 
-   addPost() {
-      let newPost = {
-         id: 4,
-         message: this._state.profilePage.newPostText,
-         likeCount: 0
+   _callSubscriber () {
+      //console.log('state changed');
+   },
+
+   dispatch(action) {
+      if (action.type === 'ADD-POST') {
+         let newPost = {
+            id: 4,
+            message: this._state.profilePage.newPostText,
+            likeCount: 0
+         }
+         this._state.profilePage.postData.push(newPost);
+         this._state.profilePage.newPostText = '';
+         this._callSubscriber();
       }
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber();
-   },
-
-   updateNewPostText (newText) {
-      this._state.profilePage.newPostText = newText;
-      this._callSubscriber();
-   },
-
-   subscribe (observer) {//subscribe - подписаться;observer - наблюдатель
-      this._callSubscriber = observer;
+      else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+         this._state.profilePage.newPostText = action.newText;
+         this._callSubscriber();
+      }
+      else if (action.type === 'SUBSCRIBE') {  
+         this._callSubscriber = action.observer;
+      }
    }
+
+   // addPost() {
+   //    let newPost = {
+   //       id: 4,
+   //       message: this._state.profilePage.newPostText,
+   //       likeCount: 0
+   //    }
+   //    this._state.profilePage.postData.push(newPost);
+   //    this._state.profilePage.newPostText = '';
+   //    this._callSubscriber();
+   // },
+
+   // updateNewPostText (newText) {
+   //    this._state.profilePage.newPostText = newText;
+   //    this._callSubscriber();
+   // },
+
+   // subscribe (observer) {//subscribe - подписаться;observer - наблюдатель
+   //    this._callSubscriber = observer;
+   // },
 }
+
 
 export default store;
 //window.store = store;
