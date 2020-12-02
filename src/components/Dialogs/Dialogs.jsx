@@ -2,21 +2,31 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import onNewMessageTextActionCreator from '../../redux/store';
 
 const Dialogs = (props) => {
 
    const newMessageElement = React.createRef();
 
-   const addMessage = (e) => {
-      e.preventDefault();
-      const text = newMessageElement.current.value;
-      // alert(text);
-   }
+   // const addMessage = (e) => {
+   //    e.preventDefault();
+   //    const text = newMessageElement.current.value;
+   //    // alert(text);
+   // }
 
    // на основе данных с сервера создаю массивы компонент
    let dialogsElements = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
    let messagesElements = props.state.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message} index={m.index}/>)
 
+   const onCM = () => {
+      const text = newMessageElement.current.value;
+      props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text });
+      // props.dispatch(onNewMessageTextActionCreator(text));
+   }
+
+   const onAM = () => {
+      props.dispatch({ type: 'ON-ADD-MESSAGE' });
+   }
    
    return (
       <div className={s.dialogs}>
@@ -31,8 +41,8 @@ const Dialogs = (props) => {
             </div>
             <div className={s.newMessage}>   
                <form action="#">
-                  <input ref={newMessageElement} type="text" />
-                  <button onClick={addMessage} type="submit">
+                  <input ref={newMessageElement} onChange={onCM} type="text" value={props.state.newMessageText}/>
+                  <button onClick={onAM}>
                      Send
                   </button>
                </form>
