@@ -1,6 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import navbarReducer from './navbar-reducer';
 
 let store = {
    _state : {
@@ -46,84 +46,15 @@ let store = {
    },
 
    dispatch(action) {
-      if (action.type === 'ADD-POST') {
-         let newPost = {
-            id: 4,
-            message: this._state.profilePage.newPostText,
-            likeCount: 0
-         }
-         this._state.profilePage.postData.push(newPost);
-         this._state.profilePage.newPostText = '';
-         this._callSubscriber();
-      }
-      else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-         this._state.profilePage.newPostText = action.newText;
-         this._callSubscriber();
-      }
-      else if (action.type === 'SUBSCRIBE') {  
+      profileReducer(this._state.profilePage, action);
+      dialogsReducer(this._state.dialogsPage, action);
+      // navbarReducer(this._state.navbar, action);
+      this._callSubscriber();
+      if (action.type === 'SUBSCRIBE') {  
          this._callSubscriber = action.observer;
       } 
-      else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-         this._state.dialogsPage.newMessageText = action.newText;
-         this._callSubscriber();
-      }
-      else if (action.type === 'ON-ADD-MESSAGE') {
-         const newMessage = {
-            id: 6,
-            name: "Me",
-            message: this._state.dialogsPage.newMessageText
-         }
-         this._state.dialogsPage.messagesData.push(newMessage);
-         this._state.dialogsPage.newMessageText = '';
-      }
-      this._callSubscriber();
    }
-
-   // addPost() {
-   //    let newPost = {
-   //       id: 4,
-   //       message: this._state.profilePage.newPostText,
-   //       likeCount: 0
-   //    }
-   //    this._state.profilePage.postData.push(newPost);
-   //    this._state.profilePage.newPostText = '';
-   //    this._callSubscriber();
-   // },
-
-   // updateNewPostText (newText) {
-   //    this._state.profilePage.newPostText = newText;
-   //    this._callSubscriber();
-   // },
-
-   // subscribe (observer) {//subscribe - подписаться;observer - наблюдатель
-   //    this._callSubscriber = observer;
-   // },
 }
-
-
-export const addPostActionCreator = () => {
-   return (
-      {type: ADD_POST}
-   )
-}
-
-export const updateNewPostTextActionCreator = (text) => {
-   return (
-      {
-         type: UPDATE_NEW_POST_TEXT,
-         newText: text
-      }
-   )
-}
-
-// export const onNewMessageTextActionCreator = (text) => {
-//    return (
-//       {
-//          type: UPDATE_NEW_MESSAGE_TEXT,
-//          newText: text
-//       }
-//    )
-// }
 
 export default store;
 //window.store = store;
