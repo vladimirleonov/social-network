@@ -4,13 +4,13 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import s from './Profile.module.css';
 
-const Profile = (props) => { 
+const Profile = () => { 
    return (
       <div>
          <ImgBig/>
          <ProfileInfo/>
          {/* <MyPostsContainer store={props.store} postData={props.state.postData} newPostText={ props.state.newPostText } dispatch={props.dispatch} /> */}
-         <MyPostsContainer store={props.store}/>
+         <MyPostsContainer />
       </div>
    )
 }

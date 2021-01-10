@@ -4,14 +4,16 @@ import './index.css';
 import App from './App';
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
-
+import StoreContext from './StoreContext';
 
 let renderEntireTree = () => { 
     // debugger;
     ReactDOM.render(
         <BrowserRouter>
-            {/* <App state={store.getState()} dispatch={store.dispatch.bind(store)} /> */}
-            <App store={store} />
+            <StoreContext.Provider value={store}>
+                {/* <App state={store.getState()} dispatch={store.dispatch.bind(store)} /> */}
+                <App store={store} />
+            </StoreContext.Provider>
         </BrowserRouter>, 
         document.getElementById('root')
     );
