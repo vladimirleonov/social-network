@@ -2,30 +2,22 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogsItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { onNewMessageTextActionCreator, onAddMessageActionCreator } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
-   debugger;
-
+   // debugger;
    const newMessageElement = React.createRef();
 
-   // const addMessage = (e) => {
-   //    e.preventDefault();
-   //    const text = newMessageElement.current.value;
-   //    // alert(text);
-   // }
-
    // на основе данных с сервера создаю массивы компонент
-   let dialogsElements = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
-   let messagesElements = props.state.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message} index={m.index}/>)
+   let dialogsElements = props.state.dialogsPage.dialogsData.map(d => <DialogsItem id={d.id} name={d.name}/>)
+   let messagesElements = props.state.dialogsPage.messagesData.map(m => <Message id={m.id} name={m.name} message={m.message} index={m.index}/>)
 
-   const onCM = () => {
-      const text = newMessageElement.current.value;
-      props.dispatch(onNewMessageTextActionCreator(text));
+   const addMessage = () => {
+      props.addMessage();
    }
 
-   const onAM = () => {
-      props.dispatch(onAddMessageActionCreator());
+   const changeMessage = () => {
+      const text = newMessageElement.current.value;
+      props.changeNewMessageText(text);
    }
    
    return (
@@ -41,8 +33,8 @@ const Dialogs = (props) => {
             </div>
             <div className={s.newMessage}>   
                <form action="#">
-                  <input ref={newMessageElement} onChange={onCM} type="text" value={props.state.newMessageText}/>
-                  <button onClick={onAM}>
+                  <input ref={newMessageElement} onChange={changeMessage} type="text" value={props.state.dialogsPage.newMessageText}/>
+                  <button onClick={addMessage}>
                      Send
                   </button>
                </form>

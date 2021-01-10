@@ -1,10 +1,27 @@
 const ON_ADD_MESSAGE = 'ON-ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
-const dialogsReducer = (state, action) => {
+const initialState = {
+   dialogsData : [
+      {id: 1, name: 'Dimych'},
+      {id: 2, name: 'Andrey'},
+      {id: 3, name: 'Valera'},
+      {id: 4, name: 'Sveta'}
+   ],
+   messagesData : [
+      { id: 1, name:"Dimysh", message:"I am learn react" },
+      { id: 2, name:"Me", message:"Oh, good!" },
+      { id: 3, name:"Me", message:"I also wont to start learn react. I also wont to start learn react. I also wont to start learn react" },
+      { id: 4, name:"Dimysh", message:"You need to start" },
+      { id: 5, name:"Me", message:"Yes" }
+   ],
+   newMessageText: ''
+}
+
+const dialogsReducer = (state = initialState, action) => {
 
    switch (action.type) {
-      case ON_ADD_MESSAGE: 
+      case ON_ADD_MESSAGE:
          const newMessage = {
             id: 6,
             name: "Me",
@@ -12,10 +29,10 @@ const dialogsReducer = (state, action) => {
          }
          state.messagesData.push(newMessage);
          state.newMessageText = '';
-         break;
-      case UPDATE_NEW_MESSAGE_TEXT: 
+         return state;
+      case UPDATE_NEW_MESSAGE_TEXT:
          state.newMessageText = action.newText;
-         break;
+         return state;
       default:
          return state;
    }

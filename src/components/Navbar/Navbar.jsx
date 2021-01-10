@@ -5,10 +5,13 @@ import Friends from './Friends/Friends';
 import s from './Navbar.module.css';
 
 const Navbar = (props) => { 
+   
+   let state = props.store.getState();
+
    return (
       <nav className={s.navbar}>
          <Menu/>
-         <Friends friends={props.state.navbar.friends}/>
+         <Friends friends={state.navbar.friends}/>
       </nav>
    )
 }

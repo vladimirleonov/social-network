@@ -1,7 +1,7 @@
 import React from 'react';
 import ImgBig from './ImgBig/ImgBig';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import s from './Profile.module.css';
 
 const Profile = (props) => { 
@@ -9,7 +9,8 @@ const Profile = (props) => {
       <div>
          <ImgBig/>
          <ProfileInfo/>
-         <MyPosts postData={props.state.postData} newPostText={ props.state.newPostText } dispatch={props.dispatch} />
+         {/* <MyPostsContainer store={props.store} postData={props.state.postData} newPostText={ props.state.newPostText } dispatch={props.dispatch} /> */}
+         <MyPostsContainer store={props.store}/>
       </div>
    )
 }

@@ -1,28 +1,22 @@
 import React from 'react'
 import Post from './Post/Post'
 import s from './MyPosts.module.css';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profile-reducer';
 
 const MyPosts = (props) => {
-   debugger;
+   // debugger;
    
    const newPostElement = React.createRef();
 
-   let addP = () => { 
-      //alert(text);
-      props.dispatch(addPostActionCreator());
-      // props.store.addPost();
-      //props.updateNewPostText('');
+   let addPost = () => { 
+      props.addPost();
    }
 
-   let onCP = () => { 
+   let changePost = () => { 
       let text = newPostElement.current.value;
-      //console.log(text);
-      props.dispatch(updateNewPostTextActionCreator(text));
-      // props.store.updateNewPostText(text);
+      props.updateNewPostText(text);
    }
 
-   let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>) 
+   let postsElements = props.state.profilePage.postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount}/>) 
    return (
       <div className={s.my__posts}>
          <div className={s.header}>My posts</div>
@@ -34,9 +28,9 @@ const MyPosts = (props) => {
                name="news"
                placeholder="your news..."
             /> */}
-            <textarea ref={newPostElement} onChange={onCP} value={props.newPostText}
+            <textarea ref={newPostElement} onChange={changePost} value={props.state.profilePage.newPostText}
                name="news" id="33" cols="30" rows="3"></textarea>
-            <button onClick={addP} className={s.btn} type="button">Send</button>
+            <button onClick={addPost} className={s.btn} type="button">Send</button>
          </form>
          {/* </div> */}
          <div className={s.posts}>
