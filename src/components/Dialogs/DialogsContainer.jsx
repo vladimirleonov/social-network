@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 //    const onAddMessage = () => {
 //       props.store.dispatch(onAddMessageActionCreator());
 //    }
-
+ 
 //    const onChangeNewMessageText = (text) => {
 //       props.store.dispatch(onNewMessageTextActionCreator(text));
 //    }
