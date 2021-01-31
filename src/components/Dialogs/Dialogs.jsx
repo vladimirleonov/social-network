@@ -34,7 +34,7 @@ const Dialogs = (props) => {
             <div className={s.newMessage}>   
                <form action="#">
                   <input ref={newMessageElement} onChange={changeMessage} type="text" value={props.state.dialogsPage.newMessageText}/>
-                  <button onClick={addMessage}>
+                  <button type='button' onClick={addMessage}>
                      Send
                   </button>
                </form>

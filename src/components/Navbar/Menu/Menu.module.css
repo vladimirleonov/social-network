@@ -12,6 +12,9 @@
 .menu .item {
    margin: 3px 0;
 }
+.menu .item:last-child {
+   margin-top: 26px;
+}
 .menu .item .link {
    text-decoration: none;
    color: #847577;

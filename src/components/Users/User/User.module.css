@@ -1,0 +1,71 @@
+.users__item {
+   display: flex;
+   border-bottom: 1px solid #eeeeee;
+   padding: 26px 0;
+}
+.users__item .users__item_left_block {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-right: 20px;
+}
+.users__item .users__item_left_block span {
+   width: 70px;
+   height: 70px;
+   background-image: url(https://finewall.ru/upload/iblock/2df/2df64c2f9e005b8daf4bc10088c6eff7.png);
+   border-radius: 100%;
+}
+.users__item .users__item_left_block button {
+   border: none;
+   cursor: pointer;
+   width: 80px;
+   height: 28px;
+   font-size: 16px;
+   margin-top: 10px;
+   background-color: #e44d3a;
+   border-radius: 3px;
+   outline: none;
+   color: #fff;
+}
+
+.users__item .users__item_right_block {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   padding: 6px 0;
+}
+.users__item .users__item_right_block .users__item_info a{
+   color: #000000;
+   text-decoration: none;
+   font-size: 22px;
+}
+.users__item .users__item_right_block .users__item_info .users__item_status {
+   font-size: 16px;
+   color: #686868;
+   margin-top: 2px;
+}
+.users__item .users__item_right_block .users__item_info .users__item_place {
+   margin-top: 12px;
+   display: flex;
+}
+.users__item .users__item_right_block .users__item_info .users__item_place .users__item_country {
+   color: #686868;
+   font-size: 18px;
+}
+.users__item .users__item_right_block .users__item_info .users__item_place .users__item_city {
+   color: #686868;
+   font-size: 18px;
+}
+
+.dots {
+   height: 40px;
+   width: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+.dots span {
+   color: #686868;
+   font-size: 40px;
+}

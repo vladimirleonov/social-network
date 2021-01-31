@@ -11,6 +11,7 @@ const Menu = () => {
          <li className={s.item}><NavLink className={s.link} activeClassName={s.active} to="/news">News</NavLink></li>
          <li className={s.item}><NavLink className={s.link} activeClassName={s.active} to="/music">Music</NavLink></li>
          <li className={s.item}><NavLink className={s.link} activeClassName={s.active} to="/settings">Settings</NavLink></li>
+         <li className={s.item}><NavLink className={s.link} activeClassName={s.active} to="find-users">Find users</NavLink></li>
       </ul>
    )
 }
